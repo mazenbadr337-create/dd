@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <link rel="icon" type="image/svg+xml" href="https://lucide.dev/icons/flask-conical.svg" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>MetaboSchema - Drug Design</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <style>
+      @import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap');
+      body {
+        font-family: 'Inter', sans-serif;
+      }
+      .molecule-path {
+        transition: all 0.3s ease;
+      }
+      .molecule-path:hover {
+        stroke: #3b82f6;
+        stroke-width: 3;
+        filter: drop-shadow(0 0 4px rgba(59, 130, 246, 0.5));
+      }
+      .active-path {
+        stroke: #ef4444 !important;
+        stroke-width: 3 !important;
+      }
+
+      /* Print / PDF Styles */
+      @media print {
+        @page {
+          size: A4;
+          margin: 1.5cm;
+        }
+        body {
+          background: white;
+          color: black;
+          -webkit-print-color-adjust: exact !important;
+          print-color-adjust: exact !important;
+        }
+        .no-print {
+          display: none !important;
+        }
+        .print-only {
+          display: block !important;
+        }
+        .print-break-inside-avoid {
+          break-inside: avoid;
+        }
+        /* Expand visualizer to full width on print */
+        .print-full-width {
+          width: 100% !important;
+          grid-column: span 12 !important;
+          box-shadow: none !important;
+          border: none !important;
+        }
+        /* Hide scrollbars and heights */
+        .print-auto-height {
+          height: auto !important;
+          min-height: 0 !important;
+          overflow: visible !important;
+        }
+      }
+      .print-only {
+        display: none;
+      }
+    </style>
+  <script type="importmap">
+{
+  "imports": {
+    "react": "https://aistudiocdn.com/react@^19.2.0",
+    "react-dom/": "https://aistudiocdn.com/react-dom@^19.2.0/",
+    "react/": "https://aistudiocdn.com/react@^19.2.0/",
+    "lucide-react": "https://aistudiocdn.com/lucide-react@^0.554.0"
+  }
+}
+</script>
+</head>
+  <body class="bg-slate-50 text-slate-900 antialiased">
+    <div id="root"></div>
+    <script type="module" src="/index.tsx"></script>
+  </body>
+</html>
